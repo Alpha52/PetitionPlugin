@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.Date;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.ItemStack;
@@ -22,7 +25,7 @@ import com.nijikokun.bukkit.Permissions.Permissions;
  * @author FloydATC
  */
 
-public class PetitionPlayerListener extends PlayerListener {
+public class PetitionPlayerListener implements Listener {
     private final PetitionPlugin plugin;
 
     public PetitionPlayerListener(PetitionPlugin instance) {
@@ -30,7 +33,7 @@ public class PetitionPlayerListener extends PlayerListener {
     }
 
     //Insert Player related code here
-    @Override
+	@EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
